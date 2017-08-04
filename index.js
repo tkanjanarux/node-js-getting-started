@@ -8,6 +8,7 @@ app.use(express.static(__dirname + '/public'));
 // views is directory for all template files
 app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
+app.set('view cache', false);
 app.disable('view cache');
 
 var data = [{
@@ -42,9 +43,9 @@ var data = [{
   name: 'มาริโอ บาโลเตลี'
 }];
 
-var rand = Math.floor(Math.random() * 9);
 
 app.get('/', function(request, response) {
+  var rand = Math.floor(Math.random() * 9);
   response.render('pages/index', data[rand]);
 });
 
