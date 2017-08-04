@@ -9,13 +9,42 @@ app.use(express.static(__dirname + '/public'));
 app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
 
-var data = {
-  id: 43,
-  name: 'ซุนโงกุน'
-};
+var data = [{
+  id: 0,
+  name: 'ลิโอเนล เมสซี'
+}, {
+  id: 1,
+  name: 'คริสเตียโน โรนัลโด'
+}, {
+  id: 2,
+  name: 'อาร์เยน ร็อบเบน'
+}, {
+  id: 3,
+  name: 'ซลาตัน อิบราฮิโมวิช'
+}, {
+  id: 4,
+  name: 'หลุยส์ ซัวเรส'
+}, {
+  id: 5,
+  name: 'โรบิน ฟาน เพอร์ซี'
+}, {
+  id: 6,
+  name: 'เมซุส โอซิล'
+}, {
+  id: 7,
+  name: 'แดนนี่ เวลเบ็ค'
+}, {
+  id: 8,
+  name: 'สตีเวน เจอร์ราร์ด'
+}, {
+  id: 9,
+  name: 'มาริโอ บาโลเตลี'
+}];
+
+var rand = Math.floor(Math.random() * 9);
 
 app.get('/', function(request, response) {
-  response.render('pages/index', data);
+  response.render('pages/index', data[rand]);
 });
 
 app.listen(app.get('port'), function() {
