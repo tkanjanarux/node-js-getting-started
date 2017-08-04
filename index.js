@@ -9,8 +9,13 @@ app.use(express.static(__dirname + '/public'));
 app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
 
+var data = {
+  id: 43,
+  name: 'ซุนโงกุน'
+};
+
 app.get('/', function(request, response) {
-  response.render('pages/index');
+  response.render('pages/index', data);
 });
 
 app.listen(app.get('port'), function() {
